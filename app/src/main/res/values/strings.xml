@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">cse438-assignment2</string>
+    <string name="search">Search</string>
+    <string name="home">Home</string>
+    <string name="playlists">Playlists</string>
+    <string name="add_to_playlist">Add To Playlist</string>
+    <string name="back">Back</string>
+    <string name="artist">Artist</string>
+    <string name="track">Track</string>
+    <string name="playlist">Playlist</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
