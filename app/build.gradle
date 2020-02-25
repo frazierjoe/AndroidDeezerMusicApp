@@ -38,6 +38,9 @@ dependencies {
     //viewpager components
     implementation "com.android.support:design:28.1.0"
 
+    //kotlinx coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
+
     // Room components
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
@@ -53,9 +56,13 @@ dependencies {
 
     //Moshi for type conversion
     implementation 'com.squareup.retrofit2:converter-moshi:2.6.0'
+
+    //recycler view
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     //dependency for viewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01"
+
+    //android lifecycle
     implementation "android.arch.lifecycle:extensions:1.1.1"
 }

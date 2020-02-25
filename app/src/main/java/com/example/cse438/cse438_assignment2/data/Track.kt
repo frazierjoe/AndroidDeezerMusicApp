@@ -30,3 +30,5 @@ data class Track(
     val artist: Artist,
     val album: Album
 )
+
+data class Payload (val response_code: Int, val results: List<Track>)
