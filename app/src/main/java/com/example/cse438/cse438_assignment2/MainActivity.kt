@@ -2,7 +2,12 @@ package com.example.cse438.cse438_assignment2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import com.example.cse438.cse438_assignment2.fragments.GridFragment
+import com.example.cse438.cse438_assignment2.fragments.PlaylistFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,11 +15,36 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val fragmentAdapter = MyPagerAdapter(supportFragmentManager)
+        viewpager_main.adapter = fragmentAdapter
 
-        //Start the grid fragment
+        tabs_main.setupWithViewPager(viewpager_main)
+
+        /*//Start the grid fragment
         val fragment = GridFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
-        transaction.commit()
+        transaction.commit()*/
+    }
+
+    class MyPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+
+        override fun getCount() : Int {
+            return 2
+        }
+
+        override fun getItem(position: Int) : Fragment {
+            return when (position) {
+                0 -> { GridFragment() }
+                else -> PlaylistFragment()
+            }
+        }
+
+        override fun getPageTitle(position: Int): CharSequence {
+            return when (position) {
+                0 -> "Home"
+                else -> "Playlists"
+            }
+        }
     }
 }
