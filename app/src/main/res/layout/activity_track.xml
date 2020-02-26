@@ -23,70 +23,182 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/trackTitle"
         />
-    <TextView
-        android:id="@+id/trackArtist"
+    <LinearLayout
+        android:id="@+id/artistContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/artist"
-        android:textSize="20sp"
         android:gravity="center"
-        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trackImage"/>
-    <TextView
-        android:id="@+id/trackAlbum"
+        app:layout_constraintTop_toBottomOf="@+id/trackImage"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/artist"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:id="@+id/trackArtist"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/artist"
+            android:textSize="20sp"
+            android:gravity="left"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/albumContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/album"
-        android:textSize="20sp"
         android:gravity="center"
-        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trackArtist"/>
-    <TextView
-        android:id="@+id/trackReleased"
+        app:layout_constraintTop_toBottomOf="@+id/artistContainer"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/album"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:id="@+id/trackAlbum"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/album"
+            android:textSize="20sp"
+            android:gravity="left"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/releasedContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/released"
-        android:textSize="20sp"
         android:gravity="center"
-        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trackAlbum"/>
-    <TextView
-        android:id="@+id/trackPosition"
+        app:layout_constraintTop_toBottomOf="@+id/albumContainer"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/released"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:id="@+id/trackReleased"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/released"
+            android:textSize="20sp"
+            android:gravity="left"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/positionContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/trackPosition"
-        android:textSize="20sp"
         android:gravity="center"
-        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trackReleased"/>
-    <TextView
-        android:id="@+id/trackRank"
+        app:layout_constraintTop_toBottomOf="@+id/releasedContainer"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/trackPosition"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:id="@+id/trackPosition"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/trackPosition"
+            android:textSize="20sp"
+            android:gravity="left"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/rankContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/rank"
-        android:textSize="20sp"
         android:gravity="center"
-        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trackPosition"/>
-    <TextView
-        android:id="@+id/trackDuration"
+        app:layout_constraintTop_toBottomOf="@+id/positionContainer"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/rank"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:id="@+id/trackRank"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/rank"
+            android:textSize="20sp"
+            android:gravity="left"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/durationContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/duration"
-        android:textSize="20sp"
         android:gravity="center"
-        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trackRank"/>
+        app:layout_constraintTop_toBottomOf="@+id/rankContainer"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/duration"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:id="@+id/trackDuration"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/duration"
+            android:textSize="20sp"
+            android:gravity="left"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
