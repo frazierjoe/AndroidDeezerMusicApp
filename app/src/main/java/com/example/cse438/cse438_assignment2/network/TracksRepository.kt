@@ -1,5 +1,6 @@
 package com.example.cse438.cse438_assignment2.network
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.cse438.cse438_assignment2.data.TrackPayload
 import kotlinx.coroutines.CoroutineScope
@@ -18,7 +19,6 @@ class TracksRepository {
             withContext(Dispatchers.Main){
                 try{
                     if(response.isSuccessful){
-
                         resBody.value = response.body()
                     }
                 } catch (e: HttpException){

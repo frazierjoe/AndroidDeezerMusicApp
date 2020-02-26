@@ -1,6 +1,7 @@
 package com.example.cse438.cse438_assignment2.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,9 +23,6 @@ class GridFragment : Fragment() {
 
     var trackList:ArrayList<Track> = ArrayList()
     var DisplayObjectList: ArrayList<DisplayObject> = ArrayList()
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,12 +46,11 @@ class GridFragment : Fragment() {
             trackList.clear()
             trackList.addAll(it.data)
             for(track in trackList){
-                DisplayObjectList.add(DisplayObject(track.title, track.artist, "Track", null, track, null))
+                DisplayObjectList.add(DisplayObject(track.album.cover_big, track.title, track.artist.name, "Track", null, track, null))
             }
             gridItemAdapter.notifyDataSetChanged()
         })
         trackViewModel.getChartTracks()
-
 
         return rootView
     }

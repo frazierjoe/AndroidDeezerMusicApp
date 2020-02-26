@@ -51,6 +51,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
 
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
     //retrofit for REST
     implementation 'com.squareup.retrofit2:retrofit:2.6.0'
 

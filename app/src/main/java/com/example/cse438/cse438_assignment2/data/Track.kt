@@ -1,7 +1,9 @@
 package com.example.cse438.cse438_assignment2.data
 
+import com.squareup.moshi.Json
 import retrofit2.http.Url
 import java.sql.Date
+
 
 data class Track(
     val id: Int,
@@ -16,8 +18,8 @@ data class Track(
     val explicit_content_cover: Int,
     val preview: String,
     val position: Int,
-    val artist: String,
-    val album: String,
+    val artist: Artist,
+    val album: Album,
     val type: String
 
 //    val readable: Boolean,

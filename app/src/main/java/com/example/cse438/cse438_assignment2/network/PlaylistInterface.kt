@@ -11,6 +11,4 @@ interface PlaylistInterface {
     @GET("api.php")
     suspend fun getTracksBySearch(@Query("album") album: String, @Query("artist") artist: String, @Query("genre") genre: String) : Response<TrackPayload>
 
-    @GET("chart/0/tracks")
-    suspend fun getChartTracks(): Response<TrackPayload>
 }

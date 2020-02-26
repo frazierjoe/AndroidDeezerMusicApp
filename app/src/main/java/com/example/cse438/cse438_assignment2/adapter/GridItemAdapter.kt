@@ -4,10 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.GridView
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.data.DisplayObject
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.grid_item.view.*
 import java.util.*
 
@@ -16,12 +20,17 @@ class GridViewHolder (inflater: LayoutInflater, parent: ViewGroup):
     RecyclerView.ViewHolder(inflater.inflate(R.layout.grid_item, parent, false)){
     private val mainText: TextView
     private val subText: TextView
+    private val imageView: ImageView
+
     init {
         mainText = itemView.findViewById(R.id.gridTextMain)
         subText = itemView.findViewById(R.id.gridTextSub)
+        imageView = itemView.findViewById(R.id.imageView)
     }
 
     fun bind(displyObject: DisplayObject){
+        var image = displyObject.image
+        Picasso.with(imageView.context).load(image).into(imageView)
         mainText.text = displyObject.mainText
         subText.text = displyObject.subText
     }
