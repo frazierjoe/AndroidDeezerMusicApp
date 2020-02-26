@@ -4,13 +4,19 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object ApiClient {
-    const val BASE_URL = "https://api.deezer.com/version/service/id/method/?parameters"
+    const val BASE_URL = "https://api.deezer.com/"
 
-    fun makeRetrofitService(): PlaylistInterface {
+    fun makePlaylistRetrofitService(): PlaylistInterface {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .build().create(PlaylistInterface::class.java)
 
+    }
+    fun makeTracksRetrofitService(): TracksInterface{
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(MoshiConverterFactory.create()) //Use moshi converter to convert json to kotlin objects
+            .build().create(TracksInterface::class.java)
     }
 }

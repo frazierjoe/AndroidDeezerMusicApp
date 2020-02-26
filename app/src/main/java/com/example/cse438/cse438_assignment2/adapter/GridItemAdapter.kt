@@ -3,36 +3,43 @@ package com.example.cse438.cse438_assignment2.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cse438.cse438_assignment2.R
+import com.example.cse438.cse438_assignment2.data.DisplayObject
 import kotlinx.android.synthetic.main.grid_item.view.*
+import java.util.*
 
-class GridItemAdapter : RecyclerView.Adapter<CustomViewHolder>(){
-    val mainTextList = listOf("First title", "Second", "3rd", "Moore Title")
-    val subTextList = listOf("sub1", "sub2", "sub3", "sub4")
 
-    //number of item
-    override fun getItemCount(): Int {
-        return mainTextList.size
+class GridViewHolder (inflater: LayoutInflater, parent: ViewGroup):
+    RecyclerView.ViewHolder(inflater.inflate(R.layout.grid_item, parent, false)){
+    private val mainText: TextView
+    private val subText: TextView
+    init {
+        mainText = itemView.findViewById(R.id.gridTextMain)
+        subText = itemView.findViewById(R.id.gridTextSub)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
-        //create view
-
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val cellForRow = layoutInflater.inflate(R.layout.grid_item, parent, false)
-        return CustomViewHolder(cellForRow)
+    fun bind(displyObject: DisplayObject){
+        mainText.text = displyObject.mainText
+        subText.text = displyObject.subText
     }
 
-    override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        val mainText = mainTextList[position]
-        val subText = subTextList[position]
-        holder?.view?.gridTextMain.text= mainText
-        holder?.view?.gridTextSub.text= subText
-    }
 }
 
-class CustomViewHolder(val view: View): RecyclerView.ViewHolder(view){
+class GridItemAdapter (private val list: ArrayList<DisplayObject>):RecyclerView.Adapter<GridViewHolder>(){
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        return GridViewHolder(inflater, parent)
+    }
+
+    override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
+        val displyObject: DisplayObject = list[position]
+        holder.bind(displyObject)
+    }
+
+    override fun getItemCount(): Int = list.size
 }
 

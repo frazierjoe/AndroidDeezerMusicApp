@@ -1,17 +1,17 @@
 package com.example.cse438.cse438_assignment2.network
 
 import androidx.lifecycle.MutableLiveData
-import com.example.cse438.cse438_assignment2.data.Payload
+import com.example.cse438.cse438_assignment2.data.TrackPayload
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
-class TriviaRepository {
-    val service = ApiClient.makeRetrofitService()
+class PlaylistRepository {
+    val service = ApiClient.makePlaylistRetrofitService()
 
-    fun getTracksBySearch(resBody: MutableLiveData<Payload>, album: String, artist: String, genre: String) {
+    fun getTracksBySearch(resBody: MutableLiveData<TrackPayload>, album: String, artist: String, genre: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val response = service.getTracksBySearch(album, artist, genre)
 

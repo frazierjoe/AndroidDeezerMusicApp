@@ -1,7 +1,6 @@
 package com.example.cse438.cse438_assignment2.fragments
 
-import android.content.Context
-import android.net.Uri
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,4 +19,6 @@ class PlaylistFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_playlist, container, false)
     }
+
+
 }

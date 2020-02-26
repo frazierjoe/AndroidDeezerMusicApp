@@ -5,16 +5,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cse438.cse438_assignment2.R
+import com.example.cse438.cse438_assignment2.TrackViewModel
 import com.example.cse438.cse438_assignment2.adapter.GridItemAdapter
-import kotlinx.android.synthetic.main.fragment_grid.view.*
-
+import com.example.cse438.cse438_assignment2.data.DisplayObject
+import com.example.cse438.cse438_assignment2.data.Track
 
 class GridFragment : Fragment() {
+
+    lateinit var trackViewModel: TrackViewModel
     private lateinit var recyclerView: RecyclerView
+
+    var trackList:ArrayList<Track> = ArrayList()
+    var DisplayObjectList: ArrayList<DisplayObject> = ArrayList()
+
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,12 +32,30 @@ class GridFragment : Fragment() {
     ): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_grid, container, false)
-
         recyclerView= rootView.findViewById(R.id.recyclerView) as RecyclerView
 
-//        recyclerView.layoutManager = LinearLayoutManager(activity)
+
+        trackViewModel = ViewModelProviders.of(this).get(TrackViewModel::class.java)
+
+
+        var gridItemAdapter = GridItemAdapter(DisplayObjectList)
+        recyclerView.adapter = gridItemAdapter
         recyclerView.layoutManager = GridLayoutManager(activity, 2)
-        recyclerView.adapter = GridItemAdapter()
+
+
+        trackViewModel!!.trackList.observe(this, Observer {
+            DisplayObjectList.clear()
+            trackList.clear()
+            trackList.addAll(it.data)
+            for(track in trackList){
+                DisplayObjectList.add(DisplayObject(track.title, track.artist, "Track", null, track, null))
+            }
+            gridItemAdapter.notifyDataSetChanged()
+        })
+        trackViewModel.getChartTracks()
+
+
         return rootView
     }
+
 }
