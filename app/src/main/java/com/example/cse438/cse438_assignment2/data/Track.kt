@@ -1,10 +1,12 @@
 package com.example.cse438.cse438_assignment2.data
 
+import android.os.Parcelable
 import com.squareup.moshi.Json
+import kotlinx.android.parcel.Parcelize
 import retrofit2.http.Url
 import java.sql.Date
 
-
+@Parcelize
 data class Track(
     val id: Int,
     val title: String,
@@ -42,7 +44,7 @@ data class Track(
 //    val contributors: List<String>,
 //
 //    val album: Album
-)
+): Parcelable
 
 data class TrackPayload (
     val data: List<Track>,

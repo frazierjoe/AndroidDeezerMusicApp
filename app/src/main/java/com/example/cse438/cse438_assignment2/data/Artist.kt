@@ -1,7 +1,11 @@
 package com.example.cse438.cse438_assignment2.data
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 import retrofit2.http.Url
 
+@Parcelize
 data class Artist(
     val id: Int,
     val name: String,
@@ -18,4 +22,4 @@ data class Artist(
 //
     val tracklist: String,
     val type: String
-)
+): Parcelable

@@ -9,6 +9,8 @@ import com.example.cse438.cse438_assignment2.fragments.GridFragment
 import com.example.cse438.cse438_assignment2.fragments.PlaylistFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
+
+const val EXTRA_TRACK = "com.example.cse438_assignment2.TRACK"
 class MainActivity : AppCompatActivity() {
 
 
