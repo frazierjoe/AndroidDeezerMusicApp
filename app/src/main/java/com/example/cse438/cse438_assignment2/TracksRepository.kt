@@ -1,8 +1,8 @@
-package com.example.cse438.cse438_assignment2.network
+package com.example.cse438.cse438_assignment2
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.cse438.cse438_assignment2.data.TrackPayload
+import com.example.cse438.cse438_assignment2.network.ApiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -10,7 +10,8 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
 class TracksRepository {
-    val service = ApiClient.makeTracksRetrofitService()
+    val service =
+        ApiClient.makeTracksRetrofitService()
 
     fun getChartTracks(resBody: MutableLiveData<TrackPayload>){
         CoroutineScope(Dispatchers.IO).launch {

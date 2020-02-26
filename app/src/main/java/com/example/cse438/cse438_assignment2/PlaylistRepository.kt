@@ -1,7 +1,8 @@
-package com.example.cse438.cse438_assignment2.network
+package com.example.cse438.cse438_assignment2
 
 import androidx.lifecycle.MutableLiveData
 import com.example.cse438.cse438_assignment2.data.TrackPayload
+import com.example.cse438.cse438_assignment2.network.ApiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -9,7 +10,8 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
 class PlaylistRepository {
-    val service = ApiClient.makePlaylistRetrofitService()
+    val service =
+        ApiClient.makePlaylistRetrofitService()
 
     fun getTracksBySearch(resBody: MutableLiveData<TrackPayload>, album: String, artist: String, genre: String) {
         CoroutineScope(Dispatchers.IO).launch {
