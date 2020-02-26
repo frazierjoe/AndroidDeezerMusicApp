@@ -14,8 +14,4 @@ class TrackViewModel(application: Application): AndroidViewModel(application){
         tracksRepository.getChartTracks(trackList)
     }
 
-//    fun getSingleTrack(){
-//
-//    }
-
 }
