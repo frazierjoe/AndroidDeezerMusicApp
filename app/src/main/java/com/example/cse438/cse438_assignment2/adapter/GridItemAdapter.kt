@@ -44,11 +44,11 @@ class GridViewHolder (inflater: LayoutInflater, parent: ViewGroup):
 
         gridContainer.setOnClickListener {
             if(displayObject.objectType == "Track"){
-                var track = displayObject.track
+                var id = displayObject.id
                 val context =it.context
-                var parcelizedTrack= track?.toParcelizeTrack(track)
+                //TODO Send Data to track activity
                 val intent = Intent(context, TrackActivity::class.java).apply {
-                    putExtra(EXTRA_TRACK,parcelizedTrack )
+                    putExtra("id",id )
                 }
                 context.startActivity(intent)
             }

@@ -25,5 +25,12 @@ object ApiClient {
             .addConverterFactory(MoshiConverterFactory.create()) //Use moshi converter to convert json to kotlin objects
             .build().create(SearchInterface::class.java)
     }
+    fun makeArtistRetrofitService(): ArtistInterface{
+        return Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(MoshiConverterFactory.create()) //Use moshi converter to convert json to kotlin objects
+            .build().create(ArtistInterface::class.java)
+    }
+
 
 }

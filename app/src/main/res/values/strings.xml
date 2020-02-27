@@ -20,4 +20,9 @@
     <string name="description">Description</string>
     <string name="create">Create</string>
     <string name="cancel">Cancel</string>
+    <string-array name="search_array">
+        <item>Track</item>
+        <item>Artist</item>
+    </string-array>
+    <string name="title_activity_search_activty">SearchActivty</string>
 </resources>

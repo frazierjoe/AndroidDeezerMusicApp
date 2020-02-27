@@ -11,5 +11,6 @@ data class DisplayObject(
     var objectType: String,
     var artist: Artist?,
     var track: Track?,
-    var album: Album?
+    var album: Album?,
+    var id: String?
 )
