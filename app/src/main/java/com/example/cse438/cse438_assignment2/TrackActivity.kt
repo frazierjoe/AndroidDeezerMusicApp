@@ -20,7 +20,7 @@ class TrackActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_track)
 
-        //TODO Receive data
+        
         var id: String = intent.getStringExtra("id")
 
         trackViewModel = ViewModelProviders.of(this).get(TrackViewModel::class.java)

@@ -46,7 +46,6 @@ class GridViewHolder (inflater: LayoutInflater, parent: ViewGroup):
             if(displayObject.objectType == "Track"){
                 var id = displayObject.id
                 val context =it.context
-                //TODO Send Data to track activity
                 val intent = Intent(context, TrackActivity::class.java).apply {
                     putExtra("id",id )
                 }
