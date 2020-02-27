@@ -3,6 +3,7 @@ package com.example.cse438.cse438_assignment2
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cse438.cse438_assignment2.data.Track
+import com.example.cse438.cse438_assignment2.data.parcelizeTrack
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_track.*
 
@@ -10,8 +11,8 @@ class TrackActivity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_track)
-        var track: Track = intent.getParcelableExtra(EXTRA_TRACK)
-        updateView(track)
+        var parcelizedTrack: parcelizeTrack = intent.getParcelableExtra(EXTRA_TRACK)
+        updateView(parcelizedTrack.toTrack(parcelizedTrack))
     }
 
     fun updateView(track: Track){

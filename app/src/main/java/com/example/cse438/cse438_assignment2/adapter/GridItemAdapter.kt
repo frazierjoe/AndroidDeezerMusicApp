@@ -46,8 +46,9 @@ class GridViewHolder (inflater: LayoutInflater, parent: ViewGroup):
             if(displayObject.objectType == "Track"){
                 var track = displayObject.track
                 val context =it.context
+                var parcelizedTrack= track?.toParcelizeTrack(track)
                 val intent = Intent(context, TrackActivity::class.java).apply {
-                    putExtra(EXTRA_TRACK, track)
+                    putExtra(EXTRA_TRACK,parcelizedTrack )
                 }
                 context.startActivity(intent)
             }

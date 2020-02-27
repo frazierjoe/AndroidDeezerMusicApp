@@ -12,8 +12,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:stretchColumns="1">
-
-
     <TextView
         android:id="@+id/trackTitle"
         android:layout_width="match_parent"
@@ -208,7 +206,7 @@
             android:layout_margin="5dp"
             />
     </LinearLayout>
-            
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
