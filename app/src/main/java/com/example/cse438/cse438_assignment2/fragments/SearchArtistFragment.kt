@@ -32,9 +32,12 @@ class SearchArtistFragment : Fragment(){
 
         artistViewModel = ViewModelProviders.of(this).get(ArtistViewModel::class.java)
 
+
         var gridItemAdapter = GridItemAdapter(DisplayObjectList)
         recyclerView.adapter = gridItemAdapter
         recyclerView.layoutManager = GridLayoutManager(activity, 2)
+
+        recyclerView.getLayoutParams().height = 1700
 
         artistViewModel!!.artistList.observe(this, Observer {
             DisplayObjectList.clear()

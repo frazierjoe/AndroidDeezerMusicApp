@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun getPageTitle(position: Int): CharSequence {
             return when (position) {
-                0 -> "Home"
+                0 -> "Top Tracks"
                 else -> "Playlists"
             }
         }
