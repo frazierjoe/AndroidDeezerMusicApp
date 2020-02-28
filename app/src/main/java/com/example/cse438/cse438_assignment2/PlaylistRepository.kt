@@ -1,31 +1,25 @@
 package com.example.cse438.cse438_assignment2
 
-import androidx.lifecycle.MutableLiveData
-import com.example.cse438.cse438_assignment2.data.TrackPayload
-import com.example.cse438.cse438_assignment2.network.ApiClient
+import androidx.lifecycle.LiveData
+import com.example.cse438.cse438_assignment2.db.Playlist
+import com.example.cse438.cse438_assignment2.db.PlaylistDAO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import retrofit2.HttpException
 
-class PlaylistRepository {
-    val service =
-        ApiClient.makePlaylistRetrofitService()
 
-    fun getTracksBySearch(resBody: MutableLiveData<TrackPayload>, album: String, artist: String, genre: String) {
+class PlaylistRepository (private val playlistDao: PlaylistDAO){
+    val allPlaylists: LiveData<List<Playlist>> = playlistDao.getPlaylists()
+
+    fun insert(pl: Playlist) {
         CoroutineScope(Dispatchers.IO).launch {
-            val response = service.getTracksBySearch(album, artist, genre)
+            playlistDao.insert(pl)
+        }
+    }
 
-            withContext(Dispatchers.Main) {
-                try{
-                    if(response.isSuccessful) {
-                        resBody.value = response.body()
-                    }
-                } catch (e: HttpException) {
-                    println("Http error")
-                }
-            }
+    fun clear() {
+        CoroutineScope(Dispatchers.IO).launch {
+            playlistDao.deleteAll()
         }
     }
 }

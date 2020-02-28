@@ -3,35 +3,23 @@ package com.example.cse438.cse438_assignment2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.example.cse438.cse438_assignment2.fragments.GridFragment
 import com.example.cse438.cse438_assignment2.fragments.PlaylistFragment
-import com.example.cse438.cse438_assignment2.SearchViewModel
-import com.example.cse438.cse438_assignment2.fragments.SearchTrackFragment
 
 import kotlinx.android.synthetic.main.activity_main.*
 
-// Store/initial request type and id
-// Request Chart, search, track extras
-//
-//
-//
+
 const val EXTRA_TRACK = "com.example.cse438_assignment2.TRACK"
 class MainActivity : AppCompatActivity() {
 
     lateinit var searchButton: Button
     lateinit var searchBox: EditText
     lateinit var searchSpinner: Spinner
-//    lateinit var searchViewModel: SearchViewModel
+
 
 
 

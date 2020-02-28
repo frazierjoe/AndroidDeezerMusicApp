@@ -5,9 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.cse438.cse438_assignment2.data.DisplayObject
 import com.example.cse438.cse438_assignment2.data.Track
-//import com.example.cse438.cse438_assignment2.data.parcelizeTrack
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_track.*
 

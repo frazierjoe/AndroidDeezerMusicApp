@@ -1,13 +1,12 @@
 package com.example.cse438.cse438_assignment2.data
 
-import retrofit2.http.Url
 
 data class Genre(
     val id: Int,
     val name: String,
-    val picture: Url,
-    val picture_small: Url,
-    val picture_medium: Url,
-    val picture_big: Url,
-    val picture_xl: Url
+    val picture: String,
+    val picture_small: String,
+    val picture_medium: String,
+    val picture_big: String,
+    val picture_xl: String
 )

@@ -1,7 +1,6 @@
 package com.example.cse438.cse438_assignment2.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

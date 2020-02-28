@@ -16,7 +16,7 @@ class ArtistRepository{
         CoroutineScope(Dispatchers.IO).launch {
             val response  = service.getSearchArtist(param)
 
-//            val response  = service.getSearchTracks()
+
             withContext(Dispatchers.Main){
                 try{
                     if(response.isSuccessful){

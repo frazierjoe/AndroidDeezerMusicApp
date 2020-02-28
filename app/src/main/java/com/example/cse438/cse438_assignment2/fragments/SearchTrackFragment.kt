@@ -17,7 +17,6 @@ import com.example.cse438.cse438_assignment2.data.DisplayObject
 import com.example.cse438.cse438_assignment2.data.Track
 
 
-
 class SearchTrackFragment : Fragment() {
 
     lateinit var trackViewModel: TrackViewModel
