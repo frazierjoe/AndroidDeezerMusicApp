@@ -1,7 +1,6 @@
 package com.example.cse438.cse438_assignment2.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +14,8 @@ import com.example.cse438.cse438_assignment2.viewmodels.TrackViewModel
 import com.example.cse438.cse438_assignment2.adapter.GridItemAdapter
 import com.example.cse438.cse438_assignment2.data.DisplayObject
 import com.example.cse438.cse438_assignment2.data.Track
+import kotlinx.android.synthetic.main.fragment_grid.view.*
+
 
 
 class SearchTrackFragment : Fragment() {
@@ -44,11 +45,15 @@ class SearchTrackFragment : Fragment() {
         recyclerView.layoutManager = GridLayoutManager(activity, 2)
 
 
+
+        recyclerView.getLayoutParams().height = 1700
+
+
+
         trackViewModel!!.trackList.observe(this, Observer {
             DisplayObjectList.clear()
             trackList.clear()
             trackList.addAll(it.data)
-            Log.d("TAG", it.toString())
             for(track in trackList){
                 DisplayObjectList.add(DisplayObject(track.album.cover_big, track.title, track.artist.name, "Track", null, track, null, track.id.toString()))
             }

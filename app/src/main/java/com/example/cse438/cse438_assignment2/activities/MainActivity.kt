@@ -34,8 +34,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //Create spinner dropdown
-        ArrayAdapter.createFromResource(this,
-            R.array.search_array, android.R.layout.simple_spinner_item).also{
+        ArrayAdapter.createFromResource(this, R.array.search_array, android.R.layout.simple_spinner_item).also{
             adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             searchSpinner.adapter = adapter
@@ -86,9 +85,14 @@ class MainActivity : AppCompatActivity() {
 
         override fun getPageTitle(position: Int): CharSequence {
             return when (position) {
-                0 -> "Home"
+                0 -> "Top Tracks"
                 else -> "Playlists"
             }
         }
+
+
     }
+
+
+
 }
