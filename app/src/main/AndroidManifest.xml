@@ -12,12 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SearchActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".activities.SearchActivity"
+            android:parentActivityName=".activities.MainActivity"
 
             ></activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.SEARCH" />
@@ -26,8 +26,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TrackActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:name=".activities.TrackActivity"
+            android:parentActivityName=".activities.MainActivity"></activity>
     </application>
 
 </manifest>
