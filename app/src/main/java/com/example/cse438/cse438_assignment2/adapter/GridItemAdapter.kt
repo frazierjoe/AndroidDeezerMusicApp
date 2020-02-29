@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cse438.cse438_assignment2.R
+import com.example.cse438.cse438_assignment2.activities.ArtistActivity
 import com.example.cse438.cse438_assignment2.activities.TrackActivity
 import com.example.cse438.cse438_assignment2.data.DisplayObject
 import com.squareup.picasso.Picasso
@@ -39,6 +40,14 @@ class GridViewHolder (inflater: LayoutInflater, parent: ViewGroup):
                 val context =it.context
                 val intent = Intent(context, TrackActivity::class.java).apply {
                     putExtra("id",id )
+                }
+                context.startActivity(intent)
+            }
+            else if(displayObject.objectType == "Artist"){
+                var id = displayObject.id
+                val context = it.context
+                val intent = Intent(context, ArtistActivity::class.java).apply { //TODO 1
+                    putExtra("id",id)
                 }
                 context.startActivity(intent)
             }
