@@ -2,14 +2,17 @@ package com.example.cse438.cse438_assignment2.fragments
 
 
 import android.app.AlertDialog
-import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cse438.cse438_assignment2.adapter.PlaylistListAdapter
 import com.example.cse438.cse438_assignment2.viewmodels.PlaylistViewModel
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.db.Playlist
@@ -21,24 +24,36 @@ import kotlinx.android.synthetic.main.fragment_playlist.*
 
 class PlaylistFragment : Fragment() {
 
-    private var playlistViewModel : PlaylistViewModel? = null
-    public lateinit var createPlaylistBtn : FloatingActionButton
-    public lateinit var inputText : EditText
+    private lateinit var playlistViewModel : PlaylistViewModel
+    var _playlistList : ArrayList<Playlist> = ArrayList()
+    lateinit var createPlaylistBtn : FloatingActionButton
     lateinit var genreSpinner: Spinner
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        playlistViewModel = ViewModelProvider(this).get(PlaylistViewModel::class.java)
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_playlist, container, false)
     }
 
+    override fun onStart() {
+        super.onStart()
+    }
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //set the view model
-        playlistViewModel = ViewModelProvider(this).get(PlaylistViewModel::class.java)
+        var plAdapter = PlaylistListAdapter(_playlistList)
+        plRecyclerView.adapter = plAdapter
+        plRecyclerView.layoutManager = LinearLayoutManager(this.context)
+        //plRecyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
+        playlistViewModel!!._playlistList.observe(this, Observer { pls ->
+            _playlistList.clear()
+            _playlistList.addAll(pls)
+            plAdapter.notifyDataSetChanged()
+        })
 
         //set the button
         createPlaylistBtn = create_playlist_btn

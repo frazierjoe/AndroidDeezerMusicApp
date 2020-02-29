@@ -19,7 +19,6 @@ data class Track(
     val type: String,
     val release_date: String,
     val track_position: Int
-
 )
 
 data class TrackPayload (
