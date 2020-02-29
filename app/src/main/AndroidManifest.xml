@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cse438.cse438_assignment2">
-    <!-- permission to use the internet -->
+
+    <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,12 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SearchActivity"
-            android:parentActivityName=".MainActivity"
-
-            ></activity>
-
-        <activity android:name=".MainActivity">
+            android:name=".activities.SearchActivity"
+            android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.SEARCH" />
@@ -26,8 +24,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TrackActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:name=".activities.TrackActivity"
+            android:parentActivityName=".activities.MainActivity" />
     </application>
 
 </manifest>

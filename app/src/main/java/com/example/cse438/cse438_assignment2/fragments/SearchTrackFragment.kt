@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cse438.cse438_assignment2.R
-import com.example.cse438.cse438_assignment2.TrackViewModel
+import com.example.cse438.cse438_assignment2.viewmodels.TrackViewModel
 import com.example.cse438.cse438_assignment2.adapter.GridItemAdapter
 import com.example.cse438.cse438_assignment2.data.DisplayObject
 import com.example.cse438.cse438_assignment2.data.Track

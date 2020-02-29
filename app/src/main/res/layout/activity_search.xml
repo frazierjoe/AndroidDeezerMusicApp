@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".SearchActivity"
+    tools:context=".activities.SearchActivity"
     tools:showIn="@layout/activity_search">
     <FrameLayout
         android:id="@+id/fragment_container"

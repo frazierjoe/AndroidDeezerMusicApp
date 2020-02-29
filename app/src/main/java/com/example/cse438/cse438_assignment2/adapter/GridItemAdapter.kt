@@ -1,23 +1,14 @@
 package com.example.cse438.cse438_assignment2.adapter
 
-import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContextCompat.startActivity
-import androidx.core.net.toUri
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cse438.cse438_assignment2.EXTRA_TRACK
-import com.example.cse438.cse438_assignment2.MainActivity
 import com.example.cse438.cse438_assignment2.R
-import com.example.cse438.cse438_assignment2.TrackActivity
+import com.example.cse438.cse438_assignment2.activities.TrackActivity
 import com.example.cse438.cse438_assignment2.data.DisplayObject
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.grid_item.view.*
 import java.util.*
 
 

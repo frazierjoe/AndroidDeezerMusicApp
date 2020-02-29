@@ -208,14 +208,17 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/addToPlaylistBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/add_to_playlist"
         android:layout_marginLeft="120dp"
         android:layout_marginRight="120dp"
+        android:onClick="addToPlaylist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/durationContainer"
+
         />
 
         </TableLayout>

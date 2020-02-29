@@ -10,7 +10,11 @@ data class Playlist(
     @ColumnInfo(name="title")
     var title: String,
     @ColumnInfo(name="description")
-    var description: String
+    var description: String,
+    @ColumnInfo(name="rating")
+    var rating:String,
+    @ColumnInfo(name="genre")
+    var  genre: String
 
 ){
     @PrimaryKey(autoGenerate = true)
