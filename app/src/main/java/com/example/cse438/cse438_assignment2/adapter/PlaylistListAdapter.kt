@@ -40,9 +40,7 @@ class PlaylistViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
                 putExtra("genre", pl.genre)
             }
             context.startActivity(intent)
-
         }
-
     }
 }
 

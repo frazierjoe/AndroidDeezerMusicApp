@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.adapter.GridItemAdapter
+import com.example.cse438.cse438_assignment2.adapter.PlaylistGridItemAdapter
 import com.example.cse438.cse438_assignment2.data.DisplayObject
 import com.example.cse438.cse438_assignment2.data.Track
 import com.example.cse438.cse438_assignment2.db.Playlist
@@ -31,7 +32,7 @@ class PlaylistActivity: AppCompatActivity() {
     lateinit var thisTrack: Track
     private lateinit var recyclerView: RecyclerView
     var DisplayObjectList: ArrayList<DisplayObject> = ArrayList()
-    private var gridItemAdapter = GridItemAdapter(DisplayObjectList)
+    private var plGridItemAdapter = PlaylistGridItemAdapter(DisplayObjectList)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +41,7 @@ class PlaylistActivity: AppCompatActivity() {
 
 
         recyclerView = findViewById(R.id.plTrackRecyclerView)
-        recyclerView.adapter = gridItemAdapter
+        recyclerView.adapter = plGridItemAdapter
         recyclerView.layoutManager = GridLayoutManager(this, 2) //TODO CREATE ADAPTER
 
         var playlistTitle: String = intent.getStringExtra("title")
@@ -49,6 +50,8 @@ class PlaylistActivity: AppCompatActivity() {
         var playlistDescription: String = intent.getStringExtra("description")
         var playlistId: String = intent.getStringExtra("id")
 
+        playlistRating = "Rating: " + playlistRating
+        playlistGenre = "Genre: " + playlistGenre
         thisPlaylistTitle.text = playlistTitle
         thisPlaylistDescription.text = playlistDescription
         thisPlaylistRating.text = playlistRating
@@ -88,7 +91,7 @@ class PlaylistActivity: AppCompatActivity() {
             for (track in trackList) {
                 DisplayObjectList.add(DisplayObject(track.album.cover_big, track.title, track.artist.name, "Track", null, track, null, track.id.toString()))
             }
-            gridItemAdapter.notifyDataSetChanged()
+            plGridItemAdapter.notifyDataSetChanged()
         })
         for(song in songList) {
             trackViewModel.getTrack(song.trackID.toString())

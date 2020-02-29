@@ -4,6 +4,7 @@
     <string name="home">Home</string>
     <string name="playlists">Playlists</string>
     <string name="add_to_playlist">Add To Playlist</string>
+    <string name="remove_from_playlist">Remove From Playlist</string>
     <string name="back">Back</string>
     <string name="artist">Artist</string>
     <string name="track">Track</string>
