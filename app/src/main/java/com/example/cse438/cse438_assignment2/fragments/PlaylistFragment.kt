@@ -1,25 +1,30 @@
 package com.example.cse438.cse438_assignment2.fragments
 
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
+import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import com.example.cse438.cse438_assignment2.viewmodels.PlaylistViewModel
 import com.example.cse438.cse438_assignment2.R
-
+import com.example.cse438.cse438_assignment2.db.Playlist
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.dialog_create_playlist.*
+import kotlinx.android.synthetic.main.dialog_create_playlist.view.*
 import kotlinx.android.synthetic.main.fragment_playlist.*
 
 
 class PlaylistFragment : Fragment() {
 
     private var playlistViewModel : PlaylistViewModel? = null
-    public lateinit var createPlaylistBtn : Button
+    public lateinit var createPlaylistBtn : FloatingActionButton
     public lateinit var inputText : EditText
+    lateinit var genreSpinner: Spinner
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,14 +40,65 @@ class PlaylistFragment : Fragment() {
         //set the view model
         playlistViewModel = ViewModelProvider(this).get(PlaylistViewModel::class.java)
 
-        //set the buttons and textß
-        //createPlaylistBtn = createButton
-        //inputText = playlist_text_input
+        //set the button
+        createPlaylistBtn = create_playlist_btn
 
-        //set the create button
+        //set the create button listener
         create_playlist_btn.setOnClickListener{
-
+            dialogView()
         }
     }
 
+    private fun dialogView() {
+        // Opens the dialog view asking the user for their calorie goal for the day
+        val dialogView = LayoutInflater.from(this.context).inflate(R.layout.dialog_create_playlist, null)
+        val mBuilder = AlertDialog.Builder(this.context)
+            .setView(dialogView)
+            .setTitle("Enter Playlist Information")
+        val mAlertDialog = mBuilder.show()
+
+        genreSpinner=dialogView.findViewById(R.id.plGenreSpinner)
+        //Create spinner dropdown
+        ArrayAdapter.createFromResource(this.context, R.array.genre_array, android.R.layout.simple_spinner_item).also{
+                adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            genreSpinner.adapter = adapter
+        }
+
+        // Sets an onclick listener on the dialog box submission button
+        mAlertDialog.submitPl.setOnClickListener {
+            val playlistName = dialogView.plName.text.toString()
+            val playlistDesc = dialogView.plDescription.text.toString()
+            val playlistRating = dialogView.plRating.text.toString()
+            val playlistGenre = dialogView.plGenreSpinner.selectedItem.toString()
+            // If the string is empty, we do not want to accept that as an input
+            if(playlistName == "" || playlistDesc == "" || playlistRating == "" || playlistGenre == ""){
+                val diaToast = Toast.makeText(this.context, "Please enter all fields", Toast.LENGTH_LONG)
+                diaToast.show()
+            }
+            else if(playlistGenre == "Select a Genre"){
+                val diaToast = Toast.makeText(this.context, "Please choose a genre from the dropdown", Toast.LENGTH_LONG)
+                diaToast.show()
+            }
+            else
+            {
+                val pl = Playlist(
+                    playlistName,
+                    playlistDesc,
+                    playlistRating,
+                    playlistGenre
+                )
+
+                //add the playlist to the database
+                playlistViewModel!!.insert(pl)
+
+                val text = "Playlist Added!"
+                val duration = Toast.LENGTH_SHORT
+
+                val toast = Toast.makeText(this.context, text, duration)
+                toast.show()
+                mAlertDialog.dismiss()
+            }
+        }
+    }
 }

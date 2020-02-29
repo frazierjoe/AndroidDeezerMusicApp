@@ -24,6 +24,28 @@
         <item>Track</item>
         <item>Artist</item>
     </string-array>
+    <string-array name="genre_array">
+        <item>Select a Genre</item>
+        <item>Pop</item>
+        <item>Country</item>
+        <item>Rap</item>
+        <item>Hip Hop</item>
+        <item>Rock</item>
+        <item>Dance</item>
+        <item>R+B</item>
+        <item>Alternative</item>
+        <item>Christian</item>
+        <item>Electronic</item>
+        <item>Folk</item>
+        <item>Reggae</item>
+        <item>Jazz</item>
+        <item>Classical</item>
+        <item>Metal</item>
+        <item>Soul</item>
+        <item>Blues</item>
+        <item>Latin</item>
+        <item>Kids</item>
+    </string-array>
     <string name="title_activity_search_activty">SearchActivty</string>
 
     <!-- TODO: Remove or change this placeholder text -->
