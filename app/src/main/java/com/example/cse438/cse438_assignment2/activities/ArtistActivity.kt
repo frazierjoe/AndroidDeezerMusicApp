@@ -20,7 +20,7 @@ class ArtistActivity: AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_artist) //TODO 2
+        setContentView(R.layout.activity_artist)
 
 
         var id: String = intent.getStringExtra("id")
@@ -48,8 +48,6 @@ class ArtistActivity: AppCompatActivity(){
 
     fun updateView(artist: Artist){
         artistName.text = artist.name
-
-
         var image = artist.picture_big
         Picasso.with(artistImage.context).load(image).into(artistImage)
     }

@@ -16,4 +16,9 @@ interface PlaylistDAO {
 
     @Query("DELETE FROM playlists")
     fun deleteAll()
+
+//    @Query("SELECT * FROM songs WHERE playlistID = :id")
+//    fun getPlaylistSongs(id: Int): LiveData<List<Song>>
+@Query("SELECT * FROM songs WHERE playlistID = :id")
+fun getPlaylistSongs(id: Int): LiveData<List<Song>>
 }

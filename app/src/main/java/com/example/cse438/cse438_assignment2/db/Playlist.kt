@@ -25,10 +25,11 @@ data class Playlist(
 class Song(
     @ColumnInfo(name="trackID")
     var trackID: Int,
-    @Relation(parentColumn = "playlistID", entityColumn = "id")
+   @ColumnInfo(name="playlistID")
     var playlistID: Int
+
 )
 {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey( autoGenerate = true)
     var songID: Int = 0
 }

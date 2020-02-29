@@ -2,10 +2,12 @@ package com.example.cse438.cse438_assignment2.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.cse438.cse438_assignment2.repositories.TracksRepository
 import com.example.cse438.cse438_assignment2.data.Track
 import com.example.cse438.cse438_assignment2.data.TrackPayload
+import com.example.cse438.cse438_assignment2.db.Song
 
 class TrackViewModel(application: Application): AndroidViewModel(application){
     public var trackList: MutableLiveData<TrackPayload> = MutableLiveData()
@@ -22,5 +24,6 @@ class TrackViewModel(application: Application): AndroidViewModel(application){
     fun getTrack(id: String){
         tracksRepository.getTrack(track, id)
     }
+
 
 }
