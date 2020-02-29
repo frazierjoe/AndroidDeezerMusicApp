@@ -3,6 +3,7 @@ package com.example.cse438.cse438_assignment2.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.Relation
 
 
 @Entity(tableName = "playlists")
@@ -19,4 +20,15 @@ data class Playlist(
 ){
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
+}
+@Entity(tableName = "Songs")
+class Song(
+    @ColumnInfo(name="trackID")
+    var trackID: Int,
+    @Relation(parentColumn = "playlistID", entityColumn = "id")
+    var playlistID: Int
+)
+{
+    @PrimaryKey(autoGenerate = true)
+    var songID: Int = 0
 }
