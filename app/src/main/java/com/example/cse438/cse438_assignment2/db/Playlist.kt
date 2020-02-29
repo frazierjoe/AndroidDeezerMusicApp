@@ -25,8 +25,9 @@ class Song(
     var trackID: String,
     @ColumnInfo(name = "playlistID")
     var playlistID: Int
+
 )
 {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey( autoGenerate = true)
     var songID: Int = 0
 }

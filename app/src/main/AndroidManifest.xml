@@ -16,6 +16,10 @@
             android:name=".activities.SearchActivity"
             android:parentActivityName=".activities.MainActivity" />
         <activity
+            android:name=".activities.PlaylistActivity"
+            android:parentActivityName=".activities.MainActivity"
+            />
+        <activity
             android:name=".activities.ChoosePlaylistActivity"
             android:parentActivityName=".activities.MainActivity" />
         <activity

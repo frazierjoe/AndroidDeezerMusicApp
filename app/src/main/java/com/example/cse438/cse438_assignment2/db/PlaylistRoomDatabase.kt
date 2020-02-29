@@ -5,10 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+
 @Database(entities = arrayOf(Playlist::class, Song::class), version = 3, exportSchema = false)
+
 public abstract class PlaylistRoomDatabase : RoomDatabase() {
 
     abstract fun playlistDao(): PlaylistDAO
+
+    abstract fun songDao(): SongDAO
 
     //singleton pattern
     companion object {
@@ -32,4 +36,6 @@ public abstract class PlaylistRoomDatabase : RoomDatabase() {
             }
         }
     }
+
+
 }
