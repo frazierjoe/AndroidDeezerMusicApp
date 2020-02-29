@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 
 class SongViewModel(application: Application): AndroidViewModel(application){
     private val repository: SongRepository
-    var songList: LiveData<List<Song>> = MutableLiveData()
+    var songList: MutableLiveData<List<Song>> = MutableLiveData()
     var allSongsList: LiveData<List<Song>> = MutableLiveData()
 
     init {
@@ -30,13 +30,11 @@ class SongViewModel(application: Application): AndroidViewModel(application){
         repository.clear()
     }
 
-//    fun getSongs(): LiveData<List<Song>>{
-//        return allSongsList
-//    }
+    fun getPlaylistSongs(id: Int){
+        repository.getPlaylistSongs(songList, id)
 
-    fun getPlaylistSongs(id: Int): LiveData<List<Song>>{
-        songList = repository.getPlaylistSongs(id)
-        return songList
     }
+
+
 
 }
