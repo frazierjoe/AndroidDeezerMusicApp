@@ -22,9 +22,15 @@ class PlaylistRepository (private val playlistDao: PlaylistDAO){
         return playlistSongs
     }
 
-    fun insert(pl: Playlist) {
+    fun insertPlaylist(pl: Playlist) {
         CoroutineScope(Dispatchers.IO).launch {
-            playlistDao.insert(pl)
+            playlistDao.insertPlaylist(pl)
+        }
+    }
+
+    fun insertSong(song: Song) {
+        CoroutineScope(Dispatchers.IO).launch {
+            playlistDao.insertSong(song)
         }
     }
 

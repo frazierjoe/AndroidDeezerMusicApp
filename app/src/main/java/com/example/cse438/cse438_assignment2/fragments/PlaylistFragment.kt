@@ -36,10 +36,6 @@ class PlaylistFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_playlist, container, false)
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -105,7 +101,7 @@ class PlaylistFragment : Fragment() {
                 )
 
                 //add the playlist to the database
-                playlistViewModel!!.insert(pl)
+                playlistViewModel!!.insertPlaylist(pl)
 
                 val text = "Playlist Added!"
                 val duration = Toast.LENGTH_SHORT

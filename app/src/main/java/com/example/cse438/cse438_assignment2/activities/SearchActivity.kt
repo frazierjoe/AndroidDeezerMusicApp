@@ -33,7 +33,6 @@ class SearchActivity : AppCompatActivity() {
         fragment.arguments = bundle
         fragmentTransaction.replace(R.id.fragment_container, fragment)
         fragmentTransaction.commit()
-
     }
 
 }

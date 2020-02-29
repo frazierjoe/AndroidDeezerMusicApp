@@ -1,17 +1,17 @@
 package com.example.cse438.cse438_assignment2.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.viewmodels.TrackViewModel
 import com.example.cse438.cse438_assignment2.data.Track
+import com.example.cse438.cse438_assignment2.db.Song
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_track.*
 
@@ -20,13 +20,14 @@ class TrackActivity: AppCompatActivity(){
     lateinit var trackViewModel: TrackViewModel
     var trackList: ArrayList<Track> = ArrayList()
     lateinit var thisTrack: Track
+    lateinit var tID : String
+
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_track)
 
-
-        var id: String = intent.getStringExtra("id")
+        tID = intent.getStringExtra("id")
 
         trackViewModel = ViewModelProviders.of(this).get(TrackViewModel::class.java)
         trackViewModel!!.track.observe(this, Observer {
@@ -37,11 +38,10 @@ class TrackActivity: AppCompatActivity(){
                 updateView(track)
                 thisTrack = track
             }
-
         })
-        trackViewModel.getTrack(id)
-
+        trackViewModel.getTrack(tID)
     }
+
 
     fun updateView(track: Track){
         trackTitle.text = track.title
@@ -59,9 +59,9 @@ class TrackActivity: AppCompatActivity(){
 
     fun addToPlaylist(v: View){
         Toast.makeText(this, thisTrack.title, Toast.LENGTH_LONG).show()
-
-
-
+        val intent = Intent(this, ChoosePlaylistActivity::class.java).apply {
+            putExtra("track ID", tID)
+        }
+        startActivity(intent)
     }
-
 }

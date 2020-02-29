@@ -27,8 +27,12 @@ class PlaylistViewModel(application: Application): AndroidViewModel(application)
         return _playlistList
     }
 
-    fun insert(playlist: Playlist) = viewModelScope.launch{
-        repository.insert(playlist)
+    fun insertPlaylist(playlist: Playlist) = viewModelScope.launch{
+        repository.insertPlaylist(playlist)
+    }
+
+    fun insertSong(song : Song) = viewModelScope.launch{
+        repository.insertSong(song)
     }
 
     fun clear() = viewModelScope.launch{

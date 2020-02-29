@@ -12,7 +12,10 @@ interface PlaylistDAO {
     fun getPlaylists(): LiveData<List<Playlist>>
 
     @Insert
-    fun insert(pl: Playlist)
+    fun insertPlaylist(pl: Playlist)
+
+    @Insert
+    fun insertSong(song: Song)
 
     @Query("DELETE FROM playlists")
     fun deleteAll()
