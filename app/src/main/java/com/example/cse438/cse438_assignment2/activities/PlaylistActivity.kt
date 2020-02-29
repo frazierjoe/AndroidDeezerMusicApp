@@ -68,13 +68,14 @@ class PlaylistActivity: AppCompatActivity() {
 ////        songViewModel.getPlaylistSongs(playlistId.toInt())
 //        songViewModel.getSon
 
-        songViewModel!!.allSongsList.observe(this, Observer {
+        songViewModel!!.songList.observe(this, Observer {
             songList.clear()
             for (song in it){
                 songList.add(song)
             }
             getTracks(songList)
         })
+        songViewModel.getPlaylistSongs(playlistId.toInt())
 
 
     }
