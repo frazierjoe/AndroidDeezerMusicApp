@@ -13,6 +13,7 @@ import com.example.cse438.cse438_assignment2.db.Song
 import com.example.cse438.cse438_assignment2.fragments.GridFragment
 import com.example.cse438.cse438_assignment2.fragments.PlaylistFragment
 import com.example.cse438.cse438_assignment2.viewmodels.PlaylistViewModel
+import com.example.cse438.cse438_assignment2.viewmodels.SongViewModel
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -21,6 +22,7 @@ const val EXTRA_TRACK = "com.example.cse438_assignment2.TRACK"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var playlistViewModel : PlaylistViewModel
+    private lateinit var songViewModel: SongViewModel
     lateinit var searchButton: Button
     lateinit var searchBox: EditText
     lateinit var searchSpinner: Spinner
@@ -30,18 +32,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         playlistViewModel = ViewModelProvider(this).get(PlaylistViewModel::class.java)
+        songViewModel = ViewModelProvider(this).get(SongViewModel::class.java)
         searchButton=findViewById(R.id.search_button)
         searchBox=findViewById(R.id.search_box)
         searchSpinner=findViewById(R.id.search_spinner)
 
         if(intent.hasExtra("track id")){
+
             val pID = intent.getStringExtra("playlist id")
+            Toast.makeText(this, pID, Toast.LENGTH_LONG).show()
             val tID = intent.getStringExtra("track id")
             val song = Song(
                 tID,
                 pID.toInt()
             )
-            playlistViewModel!!.insertSong(song)
+            songViewModel!!.insertSong(song)
         }
 
         //Create spinner dropdown

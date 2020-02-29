@@ -12,6 +12,8 @@ public abstract class PlaylistRoomDatabase : RoomDatabase() {
 
     abstract fun playlistDao(): PlaylistDAO
 
+    abstract fun songDao(): SongDAO
+
     //singleton pattern
     companion object {
 
@@ -34,4 +36,6 @@ public abstract class PlaylistRoomDatabase : RoomDatabase() {
             }
         }
     }
+
+
 }

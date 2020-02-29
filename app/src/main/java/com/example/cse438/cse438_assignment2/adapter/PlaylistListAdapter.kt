@@ -1,10 +1,12 @@
 package com.example.cse438.cse438_assignment2.adapter
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.activities.PlaylistActivity
@@ -32,6 +34,10 @@ class PlaylistViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
             val context = it.context
             val intent = Intent(context, PlaylistActivity::class.java).apply {
                 putExtra("id", id)
+                putExtra("title", pl.title)
+                putExtra("description", pl.description)
+                putExtra("rating", pl.rating)
+                putExtra("genre", pl.genre)
             }
             context.startActivity(intent)
 

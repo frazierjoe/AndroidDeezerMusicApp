@@ -20,7 +20,9 @@
     <string name="description">Description</string>
     <string name="create">Create</string>
     <string name="cancel">Cancel</string>
+    <string name="rating">Rating</string>
     <string name="top_tracks">Top Tracks</string>
+    <string name="genre">Genre</string>
     <string-array name="search_array">
         <item>Track</item>
         <item>Artist</item>

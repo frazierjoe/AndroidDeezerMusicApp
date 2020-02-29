@@ -46,7 +46,7 @@ class ChoosePlaylistViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 //create the listener for the recycler view
 class ChoosePlaylistAdapter(private val list: ArrayList<Playlist>?, private val tID: String) : RecyclerView.Adapter<ChoosePlaylistViewHolder>() {
     private var listEvents: ArrayList<Playlist>? = list
-    private var trackID = tID
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChoosePlaylistViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ChoosePlaylistViewHolder(inflater, parent)
@@ -55,7 +55,7 @@ class ChoosePlaylistAdapter(private val list: ArrayList<Playlist>?, private val 
     //bind the object
     override fun onBindViewHolder(holder: ChoosePlaylistViewHolder, position: Int) {
         val event: Playlist = listEvents!!.get(position)
-        holder.bind(event, trackID)
+        holder.bind(event, tID)
     }
 
     //set the count
