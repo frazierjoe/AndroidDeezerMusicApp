@@ -21,7 +21,6 @@ class PlaylistViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     fun bind(pl: Playlist) {
         plTitle?.text = pl.title
         plDescription?.text = pl.description
-
     }
 }
 

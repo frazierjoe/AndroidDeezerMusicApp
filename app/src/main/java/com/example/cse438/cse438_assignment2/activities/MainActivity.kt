@@ -7,9 +7,12 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.lifecycle.ViewModelProvider
 import com.example.cse438.cse438_assignment2.R
+import com.example.cse438.cse438_assignment2.db.Song
 import com.example.cse438.cse438_assignment2.fragments.GridFragment
 import com.example.cse438.cse438_assignment2.fragments.PlaylistFragment
+import com.example.cse438.cse438_assignment2.viewmodels.PlaylistViewModel
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,21 +20,29 @@ import kotlinx.android.synthetic.main.activity_main.*
 const val EXTRA_TRACK = "com.example.cse438_assignment2.TRACK"
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var playlistViewModel : PlaylistViewModel
     lateinit var searchButton: Button
     lateinit var searchBox: EditText
     lateinit var searchSpinner: Spinner
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        playlistViewModel = ViewModelProvider(this).get(PlaylistViewModel::class.java)
         searchButton=findViewById(R.id.search_button)
         searchBox=findViewById(R.id.search_box)
         searchSpinner=findViewById(R.id.search_spinner)
 
+        if(intent.hasExtra("track id")){
+            val pID = intent.getStringExtra("playlist id")
+            val tID = intent.getStringExtra("track id")
+            val song = Song(
+                tID,
+                pID.toInt()
+            )
+            playlistViewModel!!.insertSong(song)
+        }
 
         //Create spinner dropdown
         ArrayAdapter.createFromResource(this, R.array.search_array, android.R.layout.simple_spinner_item).also{

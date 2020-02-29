@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.cse438.cse438_assignment2.repositories.PlaylistRepository
 import com.example.cse438.cse438_assignment2.db.Playlist
 import com.example.cse438.cse438_assignment2.db.PlaylistRoomDatabase
+import com.example.cse438.cse438_assignment2.db.Song
 import kotlinx.coroutines.launch
 
 class PlaylistViewModel(application: Application): AndroidViewModel(application){
@@ -24,8 +25,12 @@ class PlaylistViewModel(application: Application): AndroidViewModel(application)
         return _playlistList
     }
 
-    fun insert(playlist: Playlist) = viewModelScope.launch{
-        repository.insert(playlist)
+    fun insertPlaylist(playlist: Playlist) = viewModelScope.launch{
+        repository.insertPlaylist(playlist)
+    }
+
+    fun insertSong(song : Song) = viewModelScope.launch{
+        repository.insertSong(song)
     }
 
     fun clear() = viewModelScope.launch{
