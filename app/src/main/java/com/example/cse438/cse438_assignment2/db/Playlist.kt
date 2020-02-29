@@ -14,7 +14,6 @@ data class Playlist(
     var rating:String,
     @ColumnInfo(name="genre")
     var  genre: String
-
 ){
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
