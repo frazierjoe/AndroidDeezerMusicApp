@@ -19,6 +19,7 @@ class PlaylistViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     private val plDescription: TextView?
     private val plContainer: LinearLayout?
 
+    //show playlists in a list
     init {
         plTitle = itemView.findViewById(R.id.playlistTitle)
         plDescription = itemView.findViewById(R.id.playlistDescription)

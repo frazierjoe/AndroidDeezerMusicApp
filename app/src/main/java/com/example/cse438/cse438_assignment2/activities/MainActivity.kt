@@ -15,11 +15,8 @@ import com.example.cse438.cse438_assignment2.fragments.GridFragment
 import com.example.cse438.cse438_assignment2.fragments.PlaylistFragment
 import com.example.cse438.cse438_assignment2.viewmodels.PlaylistViewModel
 import com.example.cse438.cse438_assignment2.viewmodels.SongViewModel
-
 import kotlinx.android.synthetic.main.activity_main.*
 
-////android:id="@+id/plalist_item_container"> playllist list row
-const val EXTRA_TRACK = "com.example.cse438_assignment2.TRACK"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var playlistViewModel : PlaylistViewModel
@@ -38,16 +35,16 @@ class MainActivity : AppCompatActivity() {
         searchBox=findViewById(R.id.search_box)
         searchSpinner=findViewById(R.id.search_spinner)
 
+        //if there is a track passed back, insert Song object to link to its playlist
         if(intent.hasExtra("track id")){
-
+            val plT = intent.getStringExtra("playlist title")
+            Toast.makeText(this, "Added to: " + plT.toString(),Toast.LENGTH_LONG).show()
             val pID = intent.getStringExtra("playlist id")
-            Toast.makeText(this, pID, Toast.LENGTH_LONG).show()
             val tID = intent.getStringExtra("track id")
             val song = Song(
                 tID,
                 pID.toInt()
             )
-            Log.d("a string", "another")
             songViewModel.insertSong(song)
         }
 
@@ -71,21 +68,17 @@ class MainActivity : AppCompatActivity() {
             var input = searchBox.text.toString()
             var type = searchSpinner.selectedItem.toString()
             if (input != ""){
-
                 val intent = Intent(this, SearchActivity::class.java).apply {
                     putExtra("input",input )
                     putExtra("type", type)
                 }
                 startActivity(intent)
-
             }
             else{
                 Toast.makeText(this, "Please enter a valid search.", Toast.LENGTH_LONG).show()
             }
         }
     }
-
-
 
     class MyPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 

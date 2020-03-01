@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.viewmodels.TrackViewModel
 import com.example.cse438.cse438_assignment2.data.Track
-import com.example.cse438.cse438_assignment2.db.Song
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_track.*
 
@@ -56,9 +55,9 @@ class TrackActivity: AppCompatActivity(){
         Picasso.with(trackImage.context).load(image).into(trackImage)
     }
 
-
+    //send to choose playlist activity
     fun addToPlaylist(v: View){
-        Toast.makeText(this, thisTrack.title, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Choose a Playlist to add to", Toast.LENGTH_LONG).show()
         val intent = Intent(this, ChoosePlaylistActivity::class.java).apply {
             putExtra("track ID", tID)
         }

@@ -34,7 +34,7 @@ class GridFragment : Fragment() {
 
         trackViewModel = ViewModelProviders.of(this).get(TrackViewModel::class.java)
 
-
+        //calls adapter to display top tracks in a grid
         var gridItemAdapter = GridItemAdapter(DisplayObjectList)
         recyclerView.adapter = gridItemAdapter
         recyclerView.layoutManager = GridLayoutManager(activity, 2)

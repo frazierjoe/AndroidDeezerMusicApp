@@ -11,7 +11,7 @@ import com.example.cse438.cse438_assignment2.db.Playlist
 import com.example.cse438.cse438_assignment2.viewmodels.PlaylistViewModel
 import kotlinx.android.synthetic.main.activity_choose_playlist.*
 
-
+//class for choosing the playlist to add a song to
 class ChoosePlaylistActivity : AppCompatActivity() {
 
     private lateinit var playlistViewModel : PlaylistViewModel

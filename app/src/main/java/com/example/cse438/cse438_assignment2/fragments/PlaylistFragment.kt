@@ -10,13 +10,11 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cse438.cse438_assignment2.adapter.PlaylistListAdapter
 import com.example.cse438.cse438_assignment2.viewmodels.PlaylistViewModel
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.db.Playlist
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.dialog_create_playlist.*
 import kotlinx.android.synthetic.main.dialog_create_playlist.view.*
 import kotlinx.android.synthetic.main.fragment_playlist.*
@@ -26,7 +24,6 @@ class PlaylistFragment : Fragment() {
 
     private lateinit var playlistViewModel : PlaylistViewModel
     var _playlistList : ArrayList<Playlist> = ArrayList()
-    lateinit var createPlaylistBtn : FloatingActionButton
     lateinit var genreSpinner: Spinner
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -36,23 +33,18 @@ class PlaylistFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_playlist, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         var plAdapter = PlaylistListAdapter(_playlistList)
         plRecyclerView.adapter = plAdapter
         plRecyclerView.layoutManager = LinearLayoutManager(this.context)
-        //plRecyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         playlistViewModel!!._playlistList.observe(this, Observer { pls ->
             _playlistList.clear()
             _playlistList.addAll(pls)
             plAdapter.notifyDataSetChanged()
         })
-
-        //set the button
-        createPlaylistBtn = create_playlist_btn
 
         //set the create button listener
         create_playlist_btn.setOnClickListener{
@@ -85,6 +77,10 @@ class PlaylistFragment : Fragment() {
             // If the string is empty, we do not want to accept that as an input
             if(playlistName == "" || playlistDesc == "" || playlistRating == "" || playlistGenre == ""){
                 val diaToast = Toast.makeText(this.context, "Please enter all fields", Toast.LENGTH_LONG)
+                diaToast.show()
+            }
+            else if(playlistRating.toInt() > 1000000){
+                val diaToast = Toast.makeText(this.context, "Rating out of range", Toast.LENGTH_LONG)
                 diaToast.show()
             }
             else if(playlistGenre == "Select a Genre"){

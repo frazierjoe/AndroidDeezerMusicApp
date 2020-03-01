@@ -2,6 +2,7 @@ package com.example.cse438.cse438_assignment2.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -16,6 +17,9 @@ interface PlaylistDAO {
 
     @Insert
     fun insertSong(song: Song)
+
+    @Delete
+    fun removePlaylist(pl:Playlist)
 
     @Query("DELETE FROM playlists")
     fun deleteAll()

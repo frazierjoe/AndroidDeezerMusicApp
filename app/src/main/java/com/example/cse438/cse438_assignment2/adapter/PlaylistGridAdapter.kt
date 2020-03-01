@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.activities.ArtistActivity
 import com.example.cse438.cse438_assignment2.activities.PlaylistTrackActivity
-import com.example.cse438.cse438_assignment2.activities.TrackActivity
 import com.example.cse438.cse438_assignment2.data.DisplayObject
 import com.squareup.picasso.Picasso
 import java.util.*
@@ -21,6 +20,7 @@ class PlaylistGridViewHolder (inflater: LayoutInflater, parent: ViewGroup):
     private val imageView: ImageView
     private val gridContainer: LinearLayout
 
+    //grid view of tracks in this playlist
     init {
         mainText = itemView.findViewById(R.id.gridTextMain)
         subText = itemView.findViewById(R.id.gridTextSub)
@@ -56,10 +56,8 @@ class PlaylistGridViewHolder (inflater: LayoutInflater, parent: ViewGroup):
                 }
                 context.startActivity(intent)
             }
-
         }
     }
-
 }
 
 class PlaylistGridItemAdapter (private val list: ArrayList<DisplayObject>):RecyclerView.Adapter<PlaylistGridViewHolder>(){

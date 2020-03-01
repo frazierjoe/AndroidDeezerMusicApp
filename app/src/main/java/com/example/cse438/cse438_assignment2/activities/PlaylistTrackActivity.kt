@@ -32,11 +32,13 @@ class PlaylistTrackActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playlist_track)
 
+        //get song object data
         tID = intent.getStringExtra("id")
         sID = intent.getIntExtra("song id", 0)
         spID = intent.getIntExtra("playlist id", 0)
         stID = intent.getStringExtra("track id")
 
+        //recreate song object
         pSong = Song(
             stID,
             spID
@@ -71,9 +73,11 @@ class PlaylistTrackActivity: AppCompatActivity(){
         Picasso.with(trackImage.context).load(image).into(trackImage)
     }
 
-
+    //listens to remove button
     fun removeFromPlaylist(v: View){
-        Toast.makeText(this, thisTrack.title, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Track Deleted from Playlist", Toast.LENGTH_LONG).show()
         songViewModel.removeSong(pSong)
+        val intent = Intent(this, MainActivity::class.java).apply {}
+        startActivity(intent)
     }
 }
