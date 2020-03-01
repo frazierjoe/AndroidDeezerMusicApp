@@ -5,25 +5,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.activities.MainActivity
-import com.example.cse438.cse438_assignment2.activities.TrackActivity
 import com.example.cse438.cse438_assignment2.db.Playlist
 
 //create the view holder
 class ChoosePlaylistViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     RecyclerView.ViewHolder(inflater.inflate(R.layout.playlist_list_row, parent, false)) {
-    //private var playlistViewModel : PlaylistViewModel
     private val plTitle: TextView?
     private val plDescription: TextView?
     private val plContainer: LinearLayout
 
+    //creates and displays each playlist
     init {
         plTitle = itemView.findViewById(R.id.playlistTitle)
         plDescription = itemView.findViewById(R.id.playlistDescription)
         plContainer = itemView.findViewById(R.id.playlistContainer)
-        //playlistViewModel = ViewModelProviders.of(AppCompatActivity).get(PlaylistViewModel::class.java)
     }
 
     fun bind(pl: Playlist, tID: String) {
@@ -31,11 +30,12 @@ class ChoosePlaylistViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         plDescription?.text = pl.description
 
         plContainer.setOnClickListener {
-
+            var plTit = pl.title
             var plID = pl.id.toString()
             val context =it.context
             val intent = Intent(context, MainActivity::class.java).apply {
                 putExtra("playlist id", plID)
+                putExtra("playlist title", plTit)
                 putExtra("track id", tID)
             }
             context.startActivity(intent)

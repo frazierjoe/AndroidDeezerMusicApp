@@ -14,19 +14,17 @@ data class Playlist(
     var rating:String,
     @ColumnInfo(name="genre")
     var  genre: String
-
 ){
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 }
 
-@Entity(tableName = "Songs")
+@Entity(tableName = "songs")
 class Song(
     @ColumnInfo(name="trackID")
     var trackID: String,
     @ColumnInfo(name = "playlistID")
     var playlistID: Int
-
 )
 {
     @PrimaryKey( autoGenerate = true)

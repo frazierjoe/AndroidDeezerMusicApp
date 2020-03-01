@@ -1,6 +1,5 @@
 package com.example.cse438.cse438_assignment2.repositories
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.cse438.cse438_assignment2.db.Song
@@ -12,7 +11,6 @@ import kotlinx.coroutines.withContext
 
 class SongRepository (private val songDao: SongDAO){
 
-    var playlistSongs: LiveData<List<Song>> = MutableLiveData()
     var allSongs: LiveData<List<Song>> = songDao.getSongs()
 
 
@@ -37,6 +35,12 @@ class SongRepository (private val songDao: SongDAO){
     fun insertSong(song: Song) {
         CoroutineScope(Dispatchers.IO).launch {
             songDao.insertSong(song)
+        }
+    }
+
+    fun removeSong(song: Song) {
+        CoroutineScope(Dispatchers.IO).launch {
+            songDao.removeSong(song)
         }
     }
 

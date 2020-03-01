@@ -1,7 +1,6 @@
 package com.example.cse438.cse438_assignment2.viewmodels
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -24,6 +23,10 @@ class SongViewModel(application: Application): AndroidViewModel(application){
 
     fun insertSong(song : Song) = viewModelScope.launch{
         repository.insertSong(song)
+    }
+
+    fun removeSong(song: Song) = viewModelScope.launch{
+        repository.removeSong(song)
     }
 
     fun clear() = viewModelScope.launch{

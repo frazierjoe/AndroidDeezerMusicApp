@@ -1,8 +1,8 @@
 package com.example.cse438.cse438_assignment2.db
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 
@@ -14,6 +14,9 @@ interface SongDAO {
 
     @Insert
     fun insertSong(song: Song)
+
+    @Delete
+    fun removeSong(song: Song)
 
     @Query("DELETE FROM songs")
     fun deleteAll()

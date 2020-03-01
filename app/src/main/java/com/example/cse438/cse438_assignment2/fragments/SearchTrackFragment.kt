@@ -14,8 +14,6 @@ import com.example.cse438.cse438_assignment2.viewmodels.TrackViewModel
 import com.example.cse438.cse438_assignment2.adapter.GridItemAdapter
 import com.example.cse438.cse438_assignment2.data.DisplayObject
 import com.example.cse438.cse438_assignment2.data.Track
-import kotlinx.android.synthetic.main.fragment_grid.view.*
-
 
 
 class SearchTrackFragment : Fragment() {
@@ -30,12 +28,10 @@ class SearchTrackFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         var input = this.arguments!!.getString("input")
 
         val rootView = inflater.inflate(R.layout.fragment_grid, container, false)
         recyclerView= rootView.findViewById(R.id.recyclerView) as RecyclerView
-
 
         trackViewModel = ViewModelProviders.of(this).get(TrackViewModel::class.java)
 
@@ -43,19 +39,14 @@ class SearchTrackFragment : Fragment() {
         var gridItemAdapter = GridItemAdapter(DisplayObjectList)
         recyclerView.adapter = gridItemAdapter
         recyclerView.layoutManager = GridLayoutManager(activity, 2)
-
-
-
         recyclerView.getLayoutParams().height = 1700
-
-
 
         trackViewModel!!.trackList.observe(this, Observer {
             DisplayObjectList.clear()
             trackList.clear()
             trackList.addAll(it.data)
             for(track in trackList){
-                DisplayObjectList.add(DisplayObject(track.album.cover_big, track.title, track.artist.name, "Track", null, track, null, track.id.toString()))
+                DisplayObjectList.add(DisplayObject(track.album.cover_big, track.title, track.artist.name, "Track", null, track, null, track.id.toString(), null))
             }
             gridItemAdapter.notifyDataSetChanged()
         })
@@ -63,5 +54,4 @@ class SearchTrackFragment : Fragment() {
 
         return rootView
     }
-
 }
