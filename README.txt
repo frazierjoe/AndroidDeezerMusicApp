@@ -10,8 +10,13 @@ A description of the creative portion of the assignment
 * Describe your feature
 * Why did you choose this feature?
 * How did you implement it?
-For our creative portion we created a an artist and artist top tracks view.
+
+For our creative portion we created an artist top tracks view and the ability to delete playlists.
 To see this feature, search for an artist and then click on any of the results to open the artist view displaying the artist's name, image and their top 10 tracks.
-We choose to implement this feature because the app seemed incomplete without allowing users to click on an artist and view information about them. 
-To implement this feature, we added an onclick listener that distinguishes between artist and track objects then starts the corresponding activity when an item is clicked. The artist id is then passed to the artist activity where a http request is made to obtain the artist name and image. The activity also starts a fragment containing a recycler view that makes a http request for the artists top tracks which are then displayed in a grid below the artist's image.
+
+We choose to implement this feature because the app seemed incomplete without allowing users to click on an artist and view information about them.
+
+To implement this feature, we added an onclick listener that distinguishes between artist and track objects then starts the corresponding activity when an item is clicked. The artist id is then passed to the artist activity where a http request is made to obtain the artist name and image. The activity also starts a fragment containing a recycler view that makes a http request for the artists top tracks which are then displayed in a grid below the artist's image. To allow users to delete playlists we added a button inside of the view displaying the tracks for a playlist, that when clicked will display a dialog box to confirm that the user would like to delete their playlist. After confirmation the playlist is removed from the database and the user is taken back to the main page of the app.
+
+
 
