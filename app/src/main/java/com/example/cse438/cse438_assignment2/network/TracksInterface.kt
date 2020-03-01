@@ -16,4 +16,7 @@ interface TracksInterface {
 
     @GET("track/{id}")
     suspend fun getTrack(@Path("id") id: String): Response<Track>
+
+    @GET("artist/{id}/top?limit=10")
+    suspend fun getArtistTopTracks(@Path("id")id: String): Response<TrackPayload>
 }

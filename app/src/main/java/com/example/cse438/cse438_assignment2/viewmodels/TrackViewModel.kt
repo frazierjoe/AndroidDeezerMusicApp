@@ -22,6 +22,9 @@ class TrackViewModel(application: Application): AndroidViewModel(application){
     fun getTrack(id: String){
         tracksRepository.getTrack(track, id)
     }
+    fun getArtistTopTracks(input: String){
+        tracksRepository.getArtistTopTracks(trackList, input)
+    }
 
 
 }

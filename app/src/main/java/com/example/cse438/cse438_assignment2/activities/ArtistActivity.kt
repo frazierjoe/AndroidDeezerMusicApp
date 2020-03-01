@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.data.Artist
+import com.example.cse438.cse438_assignment2.fragments.ArtistGridFragment
 import com.example.cse438.cse438_assignment2.fragments.GridFragment
 import com.example.cse438.cse438_assignment2.viewmodels.ArtistViewModel
 import com.squareup.picasso.Picasso
@@ -38,9 +39,13 @@ class ArtistActivity: AppCompatActivity(){
         })
         artistViewModel.getArtist(id)
 
+        val bundle = Bundle().apply {
+            putString("input", id)
+        }
         val fm = supportFragmentManager
         val fmTransaction = fm.beginTransaction()
-        val fragment = GridFragment()
+        val fragment = ArtistGridFragment()
+        fragment.arguments = bundle
         fmTransaction.add(R.id.fragment_container2, fragment)
         fmTransaction.commit()
 

@@ -67,4 +67,23 @@ class TracksRepository {
             }
         }
     }
+    fun getArtistTopTracks(resBody: MutableLiveData<TrackPayload>, param: String){
+        CoroutineScope(Dispatchers.IO).launch {
+            val response  = service.getArtistTopTracks(param)
+
+            withContext(Dispatchers.Main){
+                try{
+                    if(response.isSuccessful){
+                        println(response.body()?.toString() + " is the size")
+                        resBody.value = response.body()
+                    }
+                } catch (e: HttpException){
+                    println("Http Error")
+                } catch (e: Throwable) {
+                    //error
+                    println("Error")
+                }
+            }
+        }
+    }
 }
