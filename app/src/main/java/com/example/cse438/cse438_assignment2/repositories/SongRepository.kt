@@ -40,6 +40,12 @@ class SongRepository (private val songDao: SongDAO){
         }
     }
 
+    fun removeSong(song: Song) {
+        CoroutineScope(Dispatchers.IO).launch {
+            songDao.removeSong(song)
+        }
+    }
+
     fun clear() {
         CoroutineScope(Dispatchers.IO).launch {
             songDao.deleteAll()

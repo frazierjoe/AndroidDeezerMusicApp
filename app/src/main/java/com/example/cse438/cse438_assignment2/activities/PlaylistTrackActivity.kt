@@ -12,23 +12,38 @@ import com.example.cse438.cse438_assignment2.R
 import com.example.cse438.cse438_assignment2.viewmodels.TrackViewModel
 import com.example.cse438.cse438_assignment2.data.Track
 import com.example.cse438.cse438_assignment2.db.Song
+import com.example.cse438.cse438_assignment2.viewmodels.SongViewModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_track.*
 
 class PlaylistTrackActivity: AppCompatActivity(){
 
     lateinit var trackViewModel: TrackViewModel
+    lateinit var songViewModel: SongViewModel
     var trackList: ArrayList<Track> = ArrayList()
     lateinit var thisTrack: Track
     lateinit var tID : String
-
+    var sID : Int = 0
+    var spID : Int = 0
+    lateinit var stID : String
+    lateinit var pSong : Song
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playlist_track)
 
         tID = intent.getStringExtra("id")
+        sID = intent.getIntExtra("song id", 0)
+        spID = intent.getIntExtra("playlist id", 0)
+        stID = intent.getStringExtra("track id")
 
+        pSong = Song(
+            stID,
+            spID
+        )
+        pSong.songID = sID
+
+        songViewModel = ViewModelProviders.of(this).get(SongViewModel::class.java)
         trackViewModel = ViewModelProviders.of(this).get(TrackViewModel::class.java)
         trackViewModel!!.track.observe(this, Observer {
             trackList.clear()
@@ -59,9 +74,6 @@ class PlaylistTrackActivity: AppCompatActivity(){
 
     fun removeFromPlaylist(v: View){
         Toast.makeText(this, thisTrack.title, Toast.LENGTH_LONG).show()
-        val intent = Intent(this, ChoosePlaylistActivity::class.java).apply {
-            putExtra("track ID", tID)
-        }
-        startActivity(intent)
+        songViewModel.removeSong(pSong)
     }
 }

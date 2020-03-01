@@ -30,6 +30,7 @@ class PlaylistActivity: AppCompatActivity() {
     var songList: ArrayList<Song> = ArrayList()
     lateinit var thisPlaylist: Playlist
     lateinit var thisTrack: Track
+    lateinit var thisSong: Song
     private lateinit var recyclerView: RecyclerView
     var DisplayObjectList: ArrayList<DisplayObject> = ArrayList()
     private var plGridItemAdapter = PlaylistGridItemAdapter(DisplayObjectList)
@@ -90,7 +91,12 @@ class PlaylistActivity: AppCompatActivity() {
             trackList.clear()
             trackList.add(it)
             for (track in trackList) {
-                DisplayObjectList.add(DisplayObject(track.album.cover_big, track.title, track.artist.name, "Track", null, track, null, track.id.toString()))
+                for(song in songList) {
+                    if(song.trackID.toInt() == track.id){
+                        thisSong = song
+                    }
+                }
+                DisplayObjectList.add(DisplayObject(track.album.cover_big, track.title, track.artist.name, "Track", null, track, null, track.id.toString(), thisSong))
             }
             plGridItemAdapter.notifyDataSetChanged()
         })

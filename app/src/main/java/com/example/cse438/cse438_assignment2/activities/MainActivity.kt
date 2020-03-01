@@ -3,6 +3,7 @@ package com.example.cse438.cse438_assignment2.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -46,7 +47,8 @@ class MainActivity : AppCompatActivity() {
                 tID,
                 pID.toInt()
             )
-            songViewModel!!.insertSong(song)
+            Log.d("a string", "another")
+            songViewModel.insertSong(song)
         }
 
         //Create spinner dropdown
@@ -104,10 +106,5 @@ class MainActivity : AppCompatActivity() {
                 else -> "Playlists"
             }
         }
-
-
     }
-
-
-
 }

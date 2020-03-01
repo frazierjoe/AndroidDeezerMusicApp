@@ -38,9 +38,13 @@ class PlaylistGridViewHolder (inflater: LayoutInflater, parent: ViewGroup):
         gridContainer.setOnClickListener {
             if(displayObject.objectType == "Track"){
                 var id = displayObject.id
+                var s = displayObject.song
                 val context =it.context
                 val intent = Intent(context, PlaylistTrackActivity::class.java).apply {
-                    putExtra("id",id )
+                    putExtra("id",id)
+                    putExtra("song id", s?.songID)
+                    putExtra("playlist id", s?.playlistID)
+                    putExtra("track id", s?.trackID)
                 }
                 context.startActivity(intent)
             }

@@ -208,7 +208,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/addToPlaylistBtn"
+                android:id="@+id/removeFromPlaylistBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/remove_from_playlist"

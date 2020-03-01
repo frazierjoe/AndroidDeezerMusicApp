@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = arrayOf(Playlist::class, Song::class), version = 3, exportSchema = false)
+@Database(entities = arrayOf(Playlist::class, Song::class), version = 4, exportSchema = false)
 
 public abstract class PlaylistRoomDatabase : RoomDatabase() {
 

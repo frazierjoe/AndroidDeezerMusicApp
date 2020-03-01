@@ -19,13 +19,12 @@ data class Playlist(
     var id: Int = 0
 }
 
-@Entity(tableName = "Songs")
+@Entity(tableName = "songs")
 class Song(
     @ColumnInfo(name="trackID")
     var trackID: String,
     @ColumnInfo(name = "playlistID")
     var playlistID: Int
-
 )
 {
     @PrimaryKey( autoGenerate = true)

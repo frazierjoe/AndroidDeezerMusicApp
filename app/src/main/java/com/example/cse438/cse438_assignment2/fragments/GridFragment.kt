@@ -45,7 +45,7 @@ class GridFragment : Fragment() {
             trackList.clear()
             trackList.addAll(it.data)
             for(track in trackList){
-                DisplayObjectList.add(DisplayObject(track.album.cover_big, track.title, track.artist.name, "Track", null, track, null, track.id.toString()))
+                DisplayObjectList.add(DisplayObject(track.album.cover_big, track.title, track.artist.name, "Track", null, track, null, track.id.toString(), null))
             }
             gridItemAdapter.notifyDataSetChanged()
         })

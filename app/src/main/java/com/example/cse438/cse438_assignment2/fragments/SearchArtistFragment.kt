@@ -44,7 +44,7 @@ class SearchArtistFragment : Fragment(){
             artistList.clear()
             artistList.addAll(it.data)
             for(artist in artistList){
-                DisplayObjectList.add(DisplayObject(artist.picture_big, artist.name, "", "Artist", artist, null, null, artist.id.toString()))
+                DisplayObjectList.add(DisplayObject(artist.picture_big, artist.name, "", "Artist", artist, null, null, artist.id.toString(), null))
             }
             gridItemAdapter.notifyDataSetChanged()
         })

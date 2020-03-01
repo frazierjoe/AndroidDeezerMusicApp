@@ -26,6 +26,10 @@ class SongViewModel(application: Application): AndroidViewModel(application){
         repository.insertSong(song)
     }
 
+    fun removeSong(song: Song) = viewModelScope.launch{
+        repository.removeSong(song)
+    }
+
     fun clear() = viewModelScope.launch{
         repository.clear()
     }
