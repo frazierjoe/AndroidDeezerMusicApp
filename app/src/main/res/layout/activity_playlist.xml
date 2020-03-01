@@ -17,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|top"
-            android:layout_margin="16dp" />
+            android:layout_margin="16dp"
+            app:srcCompat="@android:drawable/ic_input_delete"/>
     </FrameLayout>
     <LinearLayout
         android:orientation="vertical"
@@ -27,6 +28,7 @@
             android:id="@+id/thisPlaylistTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
             android:text="@string/playlist"
             android:gravity="center"
             android:textSize="25sp"

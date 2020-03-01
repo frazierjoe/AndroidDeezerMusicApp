@@ -9,6 +9,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/artist"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="30sp"
             android:layout_margin="10dp"
             android:gravity="center"
