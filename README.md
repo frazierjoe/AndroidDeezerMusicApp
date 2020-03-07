@@ -27,7 +27,7 @@ Users can click on any track in the app to view track information and add the tr
 **Search for Artists**
 Users can search for artsits and view all results in a grid recycler view.
 
-<img src="/pics/searchArtists.png" alt="Search Artists" width="200px"/>
+<img src="/pics/searchArtist.png" alt="Search Artists" width="200px"/>
 
 **View Artists**
 Users can click on an artist to view the artists name, image and a grid recyler view of their top tracks.
