@@ -11,6 +11,8 @@ A room database was used to store playlist information.
 **Top Tracks**
 Displays the current top 10 tracks in a grid recycler view when the app is opened.
 
+<img src="/pics/home.png" alt="Top Tracks" width="200px"/>
+
 **Search for Tracks**
 Users can search for tracks and view all results in a grid recycler view.
 
